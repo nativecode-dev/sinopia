@@ -6,11 +6,11 @@ ENV SINOPIA_PREFIX https://localhost
 
 # Run package installer first so rebuilding the image is faster.
 RUN set -x \
-	apt-get update \
-		&& apt-get -y install whois \
-		&& npm install --global --prefix /opt/sinopia --production --silent sinopia > /dev/null \
-		&& chown daemon:root -R /opt/sinopia \
-		&& ln -s /opt/sinopia/bin/sinopia /usr/local/bin/sinopia \
+	&& apt-get update \
+	&& apt-get -y install whois \
+	&& npm install --global --prefix /opt/sinopia --production --silent sinopia > /dev/null \
+	&& chown daemon:root -R /opt/sinopia \
+    && ln -s /opt/sinopia/bin/sinopia /usr/local/bin/sinopia \
 ;
 
 # App contents.
